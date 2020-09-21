@@ -1,0 +1,26 @@
+pool:
+  vmImage: 'Ubuntu 16.04'
+
+steps:
+
+- script: npm config set @infragistics:registry $(npmRegistry)
+  displayName: 'Npm add registry'
+
+- script: npm config set $(igScope):always-auth=true
+  displayName: 'Npm config'
+
+- script: npm config set $(igScope):_auth=$(token)
+  displayName: 'Npm config auth'
+
+- script: npm ci
+  displayName: 'Install dependencies'
+  env:
+    AZURE_PIPELINES: "true"
+
+- script: npm run lint
+  displayName: 'Run lint'
+
+- script: npm run build
+  displayName: 'Generate live editing and build samples'
+  env:
+    NODE_OPTIONS: "--max_old_space_size=4096"

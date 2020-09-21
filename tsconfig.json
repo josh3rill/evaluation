@@ -1,0 +1,19 @@
+// This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’slanguage server to improve development experience.
+// It is not intended to be used to perform a compilation.
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./src/tsconfig.app.json"
+    },
+    {
+      "path": "./src/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/app-lob/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/app-lob/tsconfig.spec.json"
+    }
+  ]
+}
